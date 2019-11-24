@@ -1,43 +1,64 @@
-function getVideoInputs (info){
-    var arr = []
-    for (var i = 0 ; i < info.length ; i++ ){
-        if (info[i].kind === 'videoinput'){
-            arr.push(info[i])
-        }
-    }
-    return arr
+'use strict';
+
+
+
+var select = document.createElement('select');
+select.id = 'videoSource';
+var video = document.createElement('video');
+video.autoplay = true;
+
+var container = document.getElementById('container')
+container.appendChild(select);
+container.appendChild(video)
+
+
+var videoElement = document.querySelector('video');
+var videoSelect = document.querySelector('#videoSource');
+
+console.log(videoSelect)
+function getDevices() {
+  return navigator.mediaDevices.enumerateDevices();
 }
 
-function printOnScreen(list){
-    var main = document.getElementById('main')
-    for (var i = 0 ; i < list.length ; i++){
-        var div = document.createElement('div')
-        var x1 = document.createElement('div');
-        var x2 = document.createElement('div');
-        var x3 = document.createElement('div');
-        var x4 = document.createElement('div');
-        var elemList=[x1,x2,x3,x4]
-        x1.innerText = `deviceId: ${list[i].deviceId}`
-        x2.innerText = `groupId: ${list[i].groupId}`
-        x3.innerText = `kind: ${list[i].kind}`
-        x4.innerText = `label: ${list[i].label}`
-        for (var b = 0 ; b < 4 ; b++){
-            div.appendChild(elemList[b])
-            main.appendChild(div)
-        }
-        document.body.appendChild(main)
+function gotDevices(deviceInfos) {
+  window.deviceInfos = deviceInfos; 
+  console.log('Available input and output devices:', deviceInfos);
+  for (const deviceInfo of deviceInfos) {
+    const option = document.createElement('option');
+    option.value = deviceInfo.deviceId;
+    if (deviceInfo.kind === 'videoinput') {
+      option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
+      videoSelect.appendChild(option);
     }
+  }
+}
+
+function getStream() {
+  if (window.stream) {
+    window.stream.getTracks().forEach(track => {
+      track.stop();
+    });
+  }
+  const videoSource = videoSelect.value;
+  const constraints = {
+    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+  };
+  return navigator.mediaDevices.getUserMedia(constraints).
+    then(gotStream).catch(handleError);
+}
+
+function gotStream(stream) {
+  window.stream = stream; 
+  videoSelect.selectedIndex = [...videoSelect.options].
+    findIndex(option => option.text === stream.getVideoTracks()[0].label);
+  videoElement.srcObject = stream;
+}
+
+function handleError(error) {
+  console.error('Error: ', error);
 }
 
 
-function init(){
+videoSelect.onchange = getStream;
 
-    var video = document.querySelector('video');
-
-    navigator.mediaDevices.enumerateDevices()
-    .then(ipnutInfo=>getVideoInputs(ipnutInfo))
-    .then(inputArr=> printOnScreen(inputArr))
-    .catch(err=>console.log(err))
-} 
-
-init()
+getStream().then(getDevices).then(gotDevices);

@@ -4,11 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        #container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #button{
+            background: green;
+            width: 100px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: white;
+        }
+        #button:active{
+            color:red;
+            background: rgb(1, 160, 1);
+        }
+    </style>
+    <title>Smart-i</title>
 </head>
 <body>
-    <!-- <video autoplay></video> -->
-    <div id="main"></div>
+
+    <div id="container">
+    </div>
 
 
     <script src="../js/main.js" ></script>
