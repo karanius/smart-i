@@ -7,23 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <video autoplay></video> -->
+    <div id="main"></div>
 
 
-    <video autoplay></video>
-
-
-    <script>
-        setTimeout(()=>{
-            navigator.mediaDevices.enumerateDevices()
-            .then(res=>{
-                const infoList = res.map(info=>{
-                    return (info.kind)
-                })
-                document.querySelector("body").innerHTML = String(infoList)
-            })
-        },1000)
-    </script> 
-
-
+    <script src="../js/main.js" ></script>
 </body>
 </html>
