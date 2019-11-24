@@ -13,15 +13,16 @@
 
 
     <script>
-            const constraints = {
-              video: true
-            };
-            const video = document.querySelector('video');
-
-            console.log(video.srcObject)
-            navigator.mediaDevices.getUserMedia(constraints).
-              then((stream) => {video.srcObject = stream ; console.log(stream)});
-    </script>
+        setTimeout(()=>{
+            navigator.mediaDevices.enumerateDevices()
+            .then(res=>{
+                const infoList = res.map(info=>{
+                    return (info.kind)
+                })
+                document.querySelector("body").innerHTML = String(infoList)
+            })
+        },1000)
+    </script> 
 
 
 </body>
