@@ -4,7 +4,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>VisionTech - SMART-i</title>
-
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -14,8 +13,8 @@
             display: flex;
             min-height: 100vh;
             flex-direction: column;
+            background: rgba(255, 183, 124, 0.137);
         }
-
         main {
             flex: 1 0 auto;
             display: flex;
@@ -27,28 +26,31 @@
             height: 30px;
             margin-bottom: 20px;
             border-radius: 5px;
-
         }
         select{
             display: inline-block;
             margin-top: 20px;
             background: rgba(255, 0, 0, 0.212);
+            min-width: 200px;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.281);
         }
         video{
             width: 80vw;
             height: auto;
-            background-color: rgba(255, 0, 0, 0.356);
+            background-color: rgba(255, 0, 0, 0);
             border-radius: 10px;
             margin: 25px;
         }
         .vidAndBox{
             position: relative;
             display: flex;
-          
         }
         .boundingBox{
             position: absolute;
             box-shadow: 0 0 0 3px #149df2 inset;
+        }
+        video{
+          max-width: 600px;
         }
 
   </style>
@@ -72,10 +74,6 @@
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
-
-
-
-
       <main id="container">
       </main>
 

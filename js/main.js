@@ -18,7 +18,7 @@ var program = (function(){
             this.videoSelect.id = 'selectVideoSource';
             this.videoElement = document.createElement('video');
             this.videoElement.autoplay = true;
-            this.videoElement.poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/HAL9000.svg/2000px-HAL9000.svg.png';
+            this.videoElement.poster = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/HAL9000.svg/500px-HAL9000.svg.png';
             this.boundingBox = document.createElement('div');
             this.boundingBox.classList.add('boundingBox');
             this.captureButton = document.createElement('button');
@@ -97,8 +97,6 @@ var program = (function(){
             var frame = document.querySelector('video')
             var width = Number(frame.offsetWidth)
             var height = Number(frame.offsetHeight)
-            console.log(calrifaiFace)
-
             return {
                 topRow: calrifaiFace.top_row * height,
                 leftCol: calrifaiFace.left_col * width,
@@ -107,7 +105,6 @@ var program = (function(){
             }
         },
         drawBox:function(box){
-            // console.log(box)
             this.boundingBox.style.top = (box.topRow  ) +'px';
             this.boundingBox.style.left = (box.leftCol  )+'px';
             this.boundingBox.style.right = (box.rightCol )+'px';
