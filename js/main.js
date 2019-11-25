@@ -105,10 +105,10 @@ var program = (function(){
             }
         },
         drawBox:function(box){
-            this.boundingBox.style.top = (box.topRow  ) +'px';
+            this.boundingBox.style.top = (box.topRow + 25 ) +'px';
             this.boundingBox.style.left = (box.leftCol  )+'px';
             this.boundingBox.style.right = (box.rightCol )+'px';
-            this.boundingBox.style.bottom = (box.bottomRow)+'px';
+            this.boundingBox.style.bottom = (box.bottomRow + 25)+'px';
         },
         faceRecog: (function(){
             var key = '4ad2aef66b2548fb98f3fe9d3cfd9767'
