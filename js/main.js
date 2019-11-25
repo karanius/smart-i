@@ -135,7 +135,7 @@ var program = (function(){
             function start(){
                 var list = window.intervalId;
                 this.end()
-                var id = setInterval(fc,500);
+                var id = setInterval(fc,700);
                 list.push(id)
                 window.intervalId = list
             };
