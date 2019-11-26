@@ -1,12 +1,6 @@
-var program = (function(){
-    var model = {
-        init:function(){
-            console.log('initing the model')
-        }
-    };
+(function(){
     var x = {
         init:function(){
-            model.init()
             view.init()
         }
     };
@@ -35,7 +29,6 @@ var program = (function(){
             this.vidAndBoundBOx.appendChild(this.boundingBox)
 
             this.selectHold.appendChild(this.videoSelect)
-
 
             container.appendChild(this.selectHold);
             container.appendChild(this.vidAndBoundBOx)
@@ -153,8 +146,5 @@ var program = (function(){
                     console.error('Error: ', error);
         },
     }
-    return {
-        init:x.init()
-    }
+    x.init()
 })()
-program
