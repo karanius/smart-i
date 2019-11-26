@@ -11,49 +11,55 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <style>
       body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-            background: rgba(255, 183, 124, 0.137);
+          display: flex;
+          min-height: 100vh;
+          flex-direction: column;
+          background: rgba(255, 183, 124, 0.137);
         }
         main {
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          flex: 1 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         main > button {
-            width: 200px;
-            height: 30px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+          width: 200px;
+          height: 30px;
+          margin-bottom: 20px;
+          border-radius: 5px;
+          color: cornflowerblue;
+          font-size: 1.3rem;
+        }
+        button:focus{
+          color: white;
         }
         select{
-            display: inline-block;
-            margin-top: 20px;
-            background: rgba(255, 0, 0, 0.212);
-            min-width: 200px;
-            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.281);
+          display: inline-block;
+          margin-top: 20px;
+          background: rgba(125, 79, 35, 0.212);
+          min-width: 200px;
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.281);
         }
         video{
-            width: 80vw;
-            height: auto;
-            background-color: rgba(255, 0, 0, 0);
-            border-radius: 10px;
-            margin: 25px;
+          width: 80vw;
+          height: auto;
+          background-color: rgba(255, 0, 0, 0);
+          border-radius: 10px;
+          margin: 25px;
+          box-shadow: 0 0 5px 1px black;
         }
         .vidAndBox{
-            position: relative;
-            display: flex;
+          position: relative;
+          display: flex;
         }
         .boundingBox{
-            position: absolute;
-            box-shadow: 0 0 0 3px #01e1ff inset;
+          position: absolute;
+          box-shadow: 0 0 0 3px #01e1ff inset;
+          border-radius: 7px;
         }
         video{
           max-width: 600px;
         }
-
   </style>
 </head>
 <body>
