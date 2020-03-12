@@ -128,7 +128,7 @@
             function start(){
                 var list = window.intervalId;
                 this.end()
-                var id = setInterval(fc,700);
+                var id = setInterval(fc,100);
                 list.push(id)
                 window.intervalId = list
             };
