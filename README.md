@@ -9,7 +9,7 @@ This app can recognize faces. It uses the newest PWA tech. Is able to connect to
 Please note that this website was built and created in style of a sophisticated and large enterprise only in order to also build a story around it!
 
 
-# [LIVE LINK]("https://karanius.github.io/smart-i/pages/faceRecog.html")
+## [LIVE LINK]("https://karanius.github.io/smart-i/pages/faceRecog.html")
 
 ![](screenshot.gif)
 
